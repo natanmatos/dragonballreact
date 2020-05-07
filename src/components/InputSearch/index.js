@@ -8,9 +8,12 @@ function InputSearch(props) {
   const handleChange = (e) => {
     const value = e.target.value;
     const name = e.target.name;
-    const filteredData = data.filter((f) =>
-      f[name].toLowerCase().includes(value.toLowerCase())
-    );
+    const filteredData = data.filter((f) => {
+      if (name) {
+        return f[name].toLowerCase().includes(value.toLowerCase());
+      }
+      return f.toLowerCase().includes(value.toLowerCase());
+    });
     setList(filteredData);
   };
 

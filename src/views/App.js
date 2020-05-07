@@ -15,9 +15,11 @@ function App() {
     <Router>
       <Switch>
         <Layout>
-          <Redirect to="/character" />
           <Route exact path="/character" component={() => <Character />} />
           <Route exact path="/planet" component={() => <Planet />} />
+          <Route exact path="/">
+            <Redirect to="/character" />
+          </Route>
         </Layout>
       </Switch>
     </Router>

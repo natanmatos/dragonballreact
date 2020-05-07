@@ -43,24 +43,25 @@ function CharacterComponent() {
     <>
       <Loading show={isFetching} />
 
+      {filterList.length ? (
+        <InputSearch
+          placeholder="Pesquisar personagem"
+          name="name"
+          data={filterList}
+          setList={setList}
+        />
+      ) : null}
+
       {list.length ? (
-        <>
-          <InputSearch
-            placeholder="Pesquisar personagem"
-            name="name"
-            data={filterList}
-            setList={setList}
-          />
-          <CardList
-            data={list}
-            render={(item) => (
-              <Card type="primary" key={item._id}>
-                <CardContent img={renderImage(item.image)} />
-                <CardFooter name={item.name} />
-              </Card>
-            )}
-          />
-        </>
+        <CardList
+          data={list}
+          render={(item) => (
+            <Card type="primary" key={item._id}>
+              <CardContent img={renderImage(item.image)} />
+              <CardFooter name={item.name} />
+            </Card>
+          )}
+        />
       ) : (
         <Empty text="Ops... Nenhum personagem para mostrar" />
       )}

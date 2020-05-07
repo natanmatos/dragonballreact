@@ -7,6 +7,7 @@ export const Card = styled.div`
   flex-direction: column;
   box-shadow: 4px 4px 4px 2px rgba(0, 0, 0, 0.15);
   background: ${({ theme, type }) => theme.colors[type]} url(${CardBg});
+  cursor: ${({ onClick }) => (onClick ? "pointer" : "normal")};
 `;
 
 export const Content = styled.div`

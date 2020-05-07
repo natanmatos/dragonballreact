@@ -5,7 +5,10 @@ export const InputGroup = styled.div`
 `;
 
 export const Input = styled.input`
-  height: 36px;
+  position: relative;
+  z-index: 30;
+  width: ${({ width }) => width || "auto"};
+  height: 38px;
   padding: 0.5rem 1rem;
   margin-bottom: 1rem;
   font-size: 1.25rem;

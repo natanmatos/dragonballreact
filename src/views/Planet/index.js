@@ -58,12 +58,14 @@ function Planet() {
         onClose={() => setOpenDrawer(false)}
       />
 
-      <InputSearch
-        placeholder="Pesquisar planeta"
-        name="name"
-        data={filterList}
-        setList={setList}
-      />
+      {filterList.length ? (
+        <InputSearch
+          placeholder="Pesquisar planeta"
+          name="name"
+          data={filterList}
+          setList={setList}
+        />
+      ) : null}
 
       {list.length ? (
         <CardList
